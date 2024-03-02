@@ -60,7 +60,8 @@ searchBox.addEventListener('input', function() {
     // Lặp qua từng mục và ẩn/hiện tùy theo từ khóa tìm kiếm
     examItems.forEach(function(item) {
         var examName = item.querySelector('li').textContent.toLowerCase();
-        if (examName.includes(searchTerm)) {
+        var examStatus = item.querySelector('button').classList.contains('free') ? 'free' : 'scheduled';
+        if (examName.includes(searchTerm) || examStatus.includes(searchTerm)) {
             item.style.display = 'block';
         } else {
             item.style.display = 'none';
