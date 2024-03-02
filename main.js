@@ -49,17 +49,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Lấy ô tìm kiếm
+// Lấy ô tìm kiếm và danh sách các mục trong exam-list
 var searchBox = document.getElementById('search');
-
-// Lấy danh sách các mục trong exam-list
 var examItems = document.querySelectorAll('.exam-list .exam-option');
 
 // Lắng nghe sự kiện khi người dùng nhập vào ô tìm kiếm
 searchBox.addEventListener('input', function() {
     var searchTerm = searchBox.value.toLowerCase();
 
-    // Lặp qua từng mục và ẩn hoặc hiện tùy theo từ khóa tìm kiếm
+    // Lặp qua từng mục và ẩn/hiện tùy theo từ khóa tìm kiếm
     examItems.forEach(function(item) {
         var examName = item.querySelector('li').textContent.toLowerCase();
         if (examName.includes(searchTerm)) {

@@ -55,17 +55,17 @@ h1 {
 }
 
 #search {
-    flex-grow: 1; /* Tự mở rộng để điền vào không gian còn lại */
+    flex-grow: 1; 
     padding: 10px;
     border: 2px solid #fff;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s;
 }
 
 #search::placeholder {
-    color: #999;
+    color: #6e7a86; /* Thay đổi màu placeholder */
 }
 
 #search-btn {
@@ -73,7 +73,7 @@ h1 {
     color: #999;
     border: none;
     border-radius: 0 5px 5px 0;
-    padding: 10px;
+    padding: 10px 15px; /* Điều chỉnh padding */
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -85,6 +85,7 @@ h1 {
 #search-btn:hover {
     background-color: #6e7a86;
 }
+
 
 #start-exam {
     display: block;
