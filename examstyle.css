@@ -38,35 +38,52 @@ h1 {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #BB2019;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .exam-option button:hover {
-    background-color: #0056b3;
+    background-color: #881009;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 #search {
-    width: 90%;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border: none;
-    margin: none;
-    border-radius: 30px;
+    flex-grow: 1; /* Tự mở rộng để điền vào không gian còn lại */
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-.search-container button {
-    padding: 10px 15px;
-    border-radius: 30px;
-    background-color: #fff;
-    border: none;
-    margin: none;
+#search::placeholder {
+    color: #999;
 }
 
-.search-container button:hover {
+#search-btn {
     background-color: #fff;
+    color: #999;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-btn i {
+    font-size: 20px;
+}
+
+#search-btn:hover {
+    background-color: #6e7a86;
 }
 
 #start-exam {
@@ -75,14 +92,14 @@ h1 {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #28a745;
+    background-color: #0078D4;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 #start-exam:hover {
-    background-color: #218838;
+    background-color: #186aaa;
 }
 
 

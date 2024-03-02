@@ -110,6 +110,10 @@ body {
     font-weight: 600;
 }
 
+.wrapper button:hover {
+    background: #f7180c;
+}
+
 .wrapper .register-link {
     font-size: 14.5px;
     text-align: center;
