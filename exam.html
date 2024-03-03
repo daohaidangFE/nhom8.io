@@ -6,7 +6,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Exam</title>
     <link rel="stylesheet" href="examstyle.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="main-content" id="main-content">
@@ -35,6 +35,16 @@
                 </button>
             </div>
         </ul>
+        <!-- Danh sách các môn thi -->
+        <div class="subject-list" id="subject-list" style="display: none;">
+            <h2>Danh sách các môn thi</h2>
+            <ul>
+                <li>Toán</li>
+                <li>Văn</li>
+                <li>Anh văn</li>
+                <!-- Thêm các môn khác vào đây -->
+            </ul>
+        </div>
         <button id="start-exam">Bắt đầu làm bài</button>
     </div>
 </body>

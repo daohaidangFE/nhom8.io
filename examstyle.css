@@ -103,5 +103,31 @@ h1 {
     background-color: #186aaa;
 }
 
+.subject-list {
+    margin-top: 20px;
+    display: none; /* Ẩn danh sách môn thi ban đầu */
+}
+
+.subject-list h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.subject-list ul {
+    list-style-type: none;
+}
+
+.subject-list ul li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subject-list ul li:hover {
+    background-color: #e0e0e0;
+}
 
 
