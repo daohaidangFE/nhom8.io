@@ -6,7 +6,11 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-image: url('https://images.unsplash.com/photo-1561502053-75e221f3ee9b'); /* Đường dẫn đến hình nền */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Giữ hình nền cố định khi cuộn trang */
 }
 
 .main-content {
@@ -135,8 +139,28 @@ h1 {
     background-color: #881009;
 }
 
+.subject-list button:focus {
+    background-color: #5f0500;
+}
+
 .subject-list button li {
     font-size: 16px;
 }
 
+#logout-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #BB2019;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Khoảng cách giữa nút đăng xuất và các phần khác */
+}
+
+#logout-btn:hover {
+    background-color: #881009;
+}
 

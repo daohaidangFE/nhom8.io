@@ -16,24 +16,43 @@ document.addEventListener("DOMContentLoaded", function() {
         registerForm.style.display = "none";
     });
 
-    var demoUsername = "";
-    var demoPassword = "";
+    //đăng xuất
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lắng nghe sự kiện click vào nút "Đăng xuất"
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            // Chuyển hướng về trang index
+            window.location.href = 'index.html';
+        });
+    });
+
+    const demoUsers = [];
+
+    // Hàm kiểm tra tài khoản
+    function isUserExist(username, password) {
+        // Duyệt qua mỗi đối tượng trong mảng users
+        for (var i = 0; i < demoUsers.length; i++) {
+            // So sánh username và password
+            if (demoUsers[i].username === username && demoUsers[i].password === password) {
+                return true; // Trả về true nếu tìm thấy tài khoản
+            }
+        }
+        return false; // Trả về false nếu không tìm thấy tài khoản
+    }
 
     document.getElementById("login-form").addEventListener("submit", function(event) {
         event.preventDefault(); // Ngăn chặn việc gửi form
         // Xác thực tên người dùng và mật khẩu (đoạn mã demo)
         var username = document.getElementById("Username").value;
         var password = document.getElementById("password").value;
-    
+        
         // Xác thực thành công, hiển thị phần nội dung của trang chính
-        if (username === demoUsername && password === demoPassword) {
+        if (isUserExist(username, password)) {
             window.location.href = "exam.html";
         } else {
             alert("Tên người dùng hoặc mật khẩu không đúng!");
         }
     });
     
-
 
     registerForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -48,8 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
         else {
-            demoUsername = newUsername;
-            demoPassword = newPassword
+            demoUsers.push({username: newUsername, password: newPassword});
         }
         // Xử lý đăng ký ở đây (chưa cần gọi đến backend)
         alert("Đăng ký thành công!");
@@ -116,3 +134,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+const startExamBtn = document.getElementById('start-exam');
+
+    startExamBtn.addEventListener('click', function() {
+        // Chuyển hướng sang trang bài thi khi nhấn vào nút "Bắt đầu làm bài"
+        window.location.href = 'testPage.html';
+    });
+
+
