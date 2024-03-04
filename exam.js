@@ -57,9 +57,78 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-const startExamBtn = document.getElementById('start-exam');
+document.addEventListener("DOMContentLoaded", function() {
+    // Lấy các phần tử cần thiết
+    var startExamButton = document.getElementById("start-exam");
+    var examOptions = document.querySelectorAll(".exam-option button");
+    var subjectOptions = document.querySelectorAll(".subject-list button");
 
-    startExamBtn.addEventListener('click', function() {
-        // Chuyển hướng sang trang bài thi khi nhấn vào nút "Bắt đầu làm bài"
-        window.location.href = 'testPage.html';
+    // Hàm kiểm tra xem đã chọn exam-option và subject-option chưa
+    function checkOptionsSelected() {
+        var examOptionSelected = false;
+        var subjectOptionSelected = false;
+
+        // Kiểm tra xem đã chọn exam-option chưa
+        examOptions.forEach(function(option) {
+            if (option.classList.contains("selected")) {
+                examOptionSelected = true;
+            }
+        });
+
+        // Kiểm tra xem đã chọn subject-option chưa
+        subjectOptions.forEach(function(option) {
+            if (option.classList.contains("selected")) {
+                subjectOptionSelected = true;
+            }
+        });
+
+        // Trả về kết quả kiểm tra
+        return examOptionSelected && subjectOptionSelected;
+    }
+
+    // Lắng nghe sự kiện click trên nút "Bắt đầu làm bài"
+    startExamButton.addEventListener("click", function() {
+        // Kiểm tra xem đã chọn exam-option và subject-option chưa
+        if (checkOptionsSelected()) {
+            // Nếu đã chọn đủ cả exam-option và subject-option, thực hiện hành động bắt đầu làm bài
+            window.location.href = 'testPage.html';
+            // Thêm mã JS xử lý tiếp theo ở đây...
+        } else {
+            // Nếu chưa chọn đủ cả exam-option và subject-option, thông báo cho người dùng
+            alert("Vui lòng chọn kỳ thi và môn thi trước khi bắt đầu làm bài!");
+        }
     });
+
+    // Lắng nghe sự kiện click trên các exam-option
+    examOptions.forEach(function(option) {
+        option.addEventListener("click", function() {
+            // Loại bỏ lớp 'selected' khỏi tất cả các exam-option
+            examOptions.forEach(function(opt) {
+                opt.classList.remove("selected");
+            });
+
+            // Thêm lớp 'selected' vào exam-option được chọn
+            option.classList.add("selected");
+        });
+    });
+
+    // Lắng nghe sự kiện click trên các subject-option
+    subjectOptions.forEach(function(option) {
+        option.addEventListener("click", function() {
+            // Loại bỏ lớp 'selected' khỏi tất cả các subject-option
+            subjectOptions.forEach(function(opt) {
+                opt.classList.remove("selected");
+            });
+
+            // Thêm lớp 'selected' vào subject-option được chọn
+            option.classList.add("selected");
+        });
+    });
+});
+
+// const startExamBtn = document.getElementById('start-exam');
+
+// startExamBtn.addEventListener('click', function() {
+//     // Chuyển hướng sang trang bài thi khi nhấn vào nút "Bắt đầu làm bài"
+    // window.location.href = 'testPage.html';
+// });
