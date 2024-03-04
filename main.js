@@ -25,7 +25,28 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    const demoUsers = [];
+        const demoUsers = [
+        {
+            username: "admin",
+            password: "admin"
+        },
+        {
+            username: "user",
+            password: "user"
+        }
+    ];
+
+        // Hàm kiểm tra xem username đã tồn tại hay chưa
+    function isUsernameExist(username) {
+        // Duyệt qua mỗi đối tượng trong mảng users
+        for (var i = 0; i < demoUsers.length; i++) {
+            // So sánh username
+            if (demoUsers[i].username === username) {
+                return true; // Trả về true nếu tìm thấy username
+            }
+        }
+        return false; // Trả về false nếu không tìm thấy username
+    }
 
     // Hàm kiểm tra tài khoản
     function isUserExist(username, password) {
@@ -47,13 +68,17 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Xác thực thành công, hiển thị phần nội dung của trang chính
         if (isUserExist(username, password)) {
-            window.location.href = "exam.html";
+            if (username === "admin") {
+            window.location.href = "DashboardAdmin";}
+            else {
+                window.location.href = "exam.html";
+            }
         } else {
             alert("Tên người dùng hoặc mật khẩu không đúng!");
         }
     });
     
-
+    // Xử lý sự kiện submit của form đăng ký
     registerForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const newUsername = document.getElementById("newUsername").value;
@@ -61,12 +86,19 @@ document.addEventListener("DOMContentLoaded", function() {
         const newPassword = document.getElementById("newPassword").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
 
+        // Kiểm tra xem username đã tồn tại hay chưa
+        if (isUsernameExist(newUsername)) {
+            alert("Tên người dùng đã tồn tại. Vui lòng nhập tên người dùng khác.");
+            return;
+        }
+
         // Kiểm tra xác nhận mật khẩu
         if (newPassword !== confirmPassword) {
             alert("Mật khẩu không khớp. Vui lòng nhập lại.");
             return;
         }
         else {
+            // Thêm user mới vào danh sách
             demoUsers.push({username: newUsername, password: newPassword});
         }
         // Xử lý đăng ký ở đây (chưa cần gọi đến backend)
