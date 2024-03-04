@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
         registerForm.style.display = "none";
     });
 
+    var demoUsername = "";
+    var demoPassword = "";
+
     document.getElementById("login-form").addEventListener("submit", function(event) {
         event.preventDefault(); // Ngăn chặn việc gửi form
         // Xác thực tên người dùng và mật khẩu (đoạn mã demo)
@@ -23,13 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
         var password = document.getElementById("password").value;
     
         // Xác thực thành công, hiển thị phần nội dung của trang chính
-        if (username === "admin" && password === "admin") {
+        if (username === demoUsername && password === demoPassword) {
             window.location.href = "exam.html";
         } else {
             alert("Tên người dùng hoặc mật khẩu không đúng!");
         }
     });
     
+
 
     registerForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -43,9 +47,14 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Mật khẩu không khớp. Vui lòng nhập lại.");
             return;
         }
-
+        else {
+            demoUsername = newUsername;
+            demoPassword = newPassword
+        }
         // Xử lý đăng ký ở đây (chưa cần gọi đến backend)
         alert("Đăng ký thành công!");
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
     });
 });
 
